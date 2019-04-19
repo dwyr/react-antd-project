@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 /*
 代码分割模型，调用该模型的方式如下。
  import SearchContainer from 'bundle-loader?lazy!./containers/Search/searchContainer';

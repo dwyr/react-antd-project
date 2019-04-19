@@ -5,7 +5,6 @@ if (window.SERVICESURL != '') {
   serverUrl = window.SERVICESURL
  }
 
-// 开发环境
 if (process.env.NODE_ENV === 'development') {
   serverUrl = 'https://www.baidu.com';                  // develop
   requestHeader = "";         // develop

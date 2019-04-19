@@ -18,11 +18,11 @@ const server = express();
 const resolve = file => path.resolve(__dirname, file);
 
 // mock本地数据 start
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({
-  extended: true
-}));
-server.use("/test",require('./mock/dynamic'));
+// server.use(bodyParser.json());
+// server.use(bodyParser.urlencoded({
+//   extended: true
+// }));
+// server.use("/test",require('./mock/dynamic'));
 // mock本地数据 end
 
 const compiler = webpack(webpackConfig);
@@ -42,14 +42,14 @@ const devMiddleware = webpackDevMiddleware(compiler, {
 
 
 /* 前端配置反向代理 start */
-const context = [
-]
-const options = {
-  target: `http://127.0.0.1:5001`,
-  changeOrigin: true
-}
-const apiProxy = proxy(options)
-server.use(context, apiProxy);
+// const context = [
+// ]
+// const options = {
+//   target: `http://127.0.0.1:5001`,
+//   changeOrigin: true
+// }
+// const apiProxy = proxy(options)
+// server.use(context, apiProxy);
 /* 前端配置反向代理 end */
 
 const hotMiddleware = webpackHotMiddleware(compiler, {
