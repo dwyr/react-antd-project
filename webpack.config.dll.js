@@ -11,6 +11,7 @@ const commont = [
   'react-bootstrap',
   'classnames',
   'antd',
+  //'echarts'
 ]
 
 module.exports = {

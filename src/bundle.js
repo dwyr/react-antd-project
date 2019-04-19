@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 /*
 代码分割模型，调用该模型的方式如下。
  import SearchContainer from 'bundle-loader?lazy!./containers/Search/searchContainer';
@@ -12,6 +12,7 @@ export default class Bundle extends React.Component {
     constructor(props){
       super(props)
       this.state = {
+          // short for "module" but that's a keyword in js, so "mod"
           mod: null
       }
     }

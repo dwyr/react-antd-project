@@ -11,8 +11,8 @@ let Config = require('./config');
 const nodeEnv = process.env.NODE_ENV || 'development';
 const Service = Config[process.env.server || 'dev']
 const gitVersion = childProcess.execSync('git rev-parse HEAD').toString().trim();
-let isPro = nodeEnv === 'production';
 
+let isPro = nodeEnv === 'production';
 if (isPro) {
   console.log('发布版本：' + process.env.server)
 } else {
@@ -80,14 +80,12 @@ plugins.push(
     gitVersion: gitVersion,
     buildDate: (new Date().getFullYear()) + "-" + (new Date().getMonth()+1) +"-"+(new Date().getDate()) + " " + (new Date().getHours()) + ":" + (new Date().getMinutes()) + ":" + (new Date().getSeconds())
   }),
-  /*new HtmlWebpackPlugin({       //多页面 -- 用于拷贝html页面
+  /*new HtmlWebpackPlugin({
     title: "template",
     template: "./static/template.html",
     filename: 'template.html',
     }),
-    new webpack.ProvidePlugin({
-    $: 'jquery',
-  })*/
+  */
 )
 
 let index = [];
@@ -113,12 +111,9 @@ module.exports = {
     modules: [
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, './src'),
-      //path.resolve(__dirname, './dll/ueditor')
     ],
     alias: {
       '@': path.resolve(__dirname, './src'),
-      //'$': path.join(__dirname, 'node_modules/jquery/dist/jquery.min.js'),
-      //'jquery': path.join(__dirname, 'node_modules/jquery/dist/jquery.min.js'),
     }
   },
   module: {

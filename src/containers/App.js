@@ -1,8 +1,4 @@
-/*
-* 入口文件
-*/
 import React from 'react';
-
 
 class App extends React.Component {
     constructor(props) {
@@ -14,7 +10,7 @@ class App extends React.Component {
 
     render() {
         return (
-          <div>
+          <div style={{'height':'100%'}}>
             {this.props.children}
           </div>
         );

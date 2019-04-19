@@ -14,18 +14,12 @@
     <meta name="keywords" content="glodon">
     <meta name="author" content="glodon">
     <title>新临建</title>
-    <link rel="icon" type="image/png" href="./images/favicon.png"/>
+    <link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico?v=1">
 </head>
 <body>
-    <!--
-    Version: <%= htmlWebpackPlugin.options.packageVersion%>
-    git Version: <%= htmlWebpackPlugin.options.gitVersion%>
-    buildDate: <%= htmlWebpackPlugin.options.buildDate%>
-    -->
-   <section id="root"></section>
-    <script type="text/javascript">
-      window.SERVICESURL = '';    // 私有化部署
-    </script>
+    <!--构建时间: <%= htmlWebpackPlugin.options.buildDate%>-->
+    <section id="root"></section>
+    <script type="text/javascript">window.SERVICESURL = '';// 私有化部署</script>
     <script type="text/javascript" src="./vendor.dll.js?v=<%= htmlWebpackPlugin.options.buildDate%>"></script>
 </body>
 </html>

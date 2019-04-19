@@ -1,11 +1,7 @@
-# Created by .ignore support plugin (hsz.mobi)
 node_modules
-.DS_Store
 npm-debug.log
 yarn.lock
+yarn-error.log
 package-lock.json
-config/localhost.settings.js
-
 build
 dist
-.idea
