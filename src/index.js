@@ -17,6 +17,8 @@ const Welcome             = (props) => (<Bundle load={WelcomeContainer}         
 const Login               = (props) => (<Bundle load={LoginContainer}           {...props}>{ (Page) => <Page {...props} />}</Bundle>)
 //const NoMatch             = (props) => (<Bundle load={NoMatchContainer}           {...props}>{ (Page) => <Page {...props} />}</Bundle>)
 
+
+
 ReactDom.render(
   <Router history={hashHistory}>
     <Route path="/" component={App}>
