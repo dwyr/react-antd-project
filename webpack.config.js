@@ -40,7 +40,11 @@ if (isPro) {
       {
         from: path.resolve(__dirname, 'static/images'),
         to: path.join(__dirname, Service.path + '/images')
-      }
+      },
+      {
+        from: path.resolve(__dirname, 'src/assets/img'),
+        to: path.join(__dirname, Service.path)
+      },
     ]),
     new CleanWebpackPlugin([Service.path], {
       root: __dirname,

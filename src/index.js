@@ -1,30 +1,24 @@
+import '@babel/polyfill'
 import React from 'react';
-import ReactDom from 'react-dom';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
-import 'antd/dist/antd.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './less/index.less';
-import App from './containers/App';
-import Bundle from './bundle.js';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+//import registerServiceWorker from './registerServiceWorker';
+import {BrowserRouter} from 'react-router-dom'
+import { Provider} from 'mobx-react'
+import { LocaleProvider } from 'antd'
+import zh_CN from 'antd/lib/locale-provider/zh_CN'
+import store from './store'
 
+//打包时，用的HashRouter并加上了basename，因为放在服务器的二级目录下
+ReactDOM.render(
+  <BrowserRouter>
+    <LocaleProvider locale={zh_CN}>
+      <Provider {...store}>
+        <App/>
+      </Provider>
+    </LocaleProvider>
+  </BrowserRouter>,
+  document.getElementById('root'));
 
-import WelcomeContainer                 from 'bundle-loader?lazy&name=app-[name]!./components/Welcome' ;
-import LoginContainer                   from 'bundle-loader?lazy&name=app-[name]!./containers/login/index' ;
-//import NoMatchContainer                 from 'bundle-loader?lazy&name=app-[name]!./components/NoMatch' ;
-
-
-const Welcome             = (props) => (<Bundle load={WelcomeContainer}           {...props}>{ (Page) => <Page {...props} />}</Bundle>)
-const Login               = (props) => (<Bundle load={LoginContainer}           {...props}>{ (Page) => <Page {...props} />}</Bundle>)
-//const NoMatch             = (props) => (<Bundle load={NoMatchContainer}           {...props}>{ (Page) => <Page {...props} />}</Bundle>)
-
-
-
-ReactDom.render(
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>
-      <IndexRoute component={Welcome}/>
-      <Route path="/login" component={Login}/>
-    </Route>
-  </Router>,
-  document.getElementById('root')
-);
+//registerServiceWorker();
